@@ -19,11 +19,20 @@ Route::get('/', 'CInformasi@index');
 Route::get('tes', function () {
     return view('tes-map');
 });
-Route::get('maps/get_cctv', 'CMap@getCCTV');
-Route::get('maps/get_gpstracer', 'CMap@getgpstracer');
-Route::get('maps/get_socialreport', 'CMap@getsocialreport');
-Route::get('search', 'CMap@search');
 
+Route::get('/login', function () {
+    return view('loginpage');
+});
+Route::get('/ruang', 'CInformasi@ruang');
+Route::group(['prefix' => 'user'],function(){
+    Route::post('signup','CUser@signup');
+    Route::post('signin','CUser@signin_action');
+    Route::get('logout','CUser@logout');
+});
+Route::group(['prefix' => 'instansi'],function(){
+    Route::get('getlist','CInstansi@getalllist');
+    Route::post('tambah','CInstansi@tambah');
+});
 Route::get('absensi/get_listmac', 'CAbsensi@getlistmac');
 Route::get('absensi/get_allabsensi', 'CAbsensi@get_allabsensi');
 Route::post('absensi/listabsen', 'CAbsensi@listabsen');

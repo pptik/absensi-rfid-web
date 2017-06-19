@@ -9,6 +9,9 @@
             <div class="left menu">
                 <h1>Absensi</h1>
             </div>
+            <div class="right menu">
+                <a class="item" href="{{url('/login')}}">Login</a>
+            </div>
         </div>
 
         <div id="containermac" name="containermac" class="ui form">

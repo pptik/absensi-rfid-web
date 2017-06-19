@@ -10,9 +10,17 @@ use DB;
 class CInformasi extends Controller
 {
     public function index(){
-
-
-
-        return view('index');
+        if (session()->has('ID')) {
+            return view('authenticated.dashboardadmin');
+        }else{
+            return view('index');
+        }
+    }
+    public function ruang(){
+        if (session()->has('ID')) {
+            return view('authenticated.ruang');
+        }else{
+            return view('index');
+        }
     }
 }

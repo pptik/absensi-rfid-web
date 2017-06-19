@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <link href="{{url('/')}}/main/resources/assets/semantic/dist/semantic.css" rel="stylesheet" type="text/css">
     <link href="{{url('/')}}/main/resources/assets/leafletsearch/src/leaflet-search.css" rel="stylesheet" type="text/css">
-	<link rel="shortcut icon" href="{{url('/')}}/main/resources/assets/images/absensi.png"/>
+    <link rel="shortcut icon" href="{{url('/')}}/main/resources/assets/images/absensi.png"/>
 
     <style>
         @yield('css')
