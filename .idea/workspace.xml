@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9641192f-2c76-453d-a81f-fadd99e33992" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main/app/Http/Controllers/CMap.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main/resources/views/index.blade - Copy.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main/resources/views/index2.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main/resources/views/indexblits.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main/resources/views/tes-map.blade.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nelayan.iml" afterPath="$PROJECT_DIR$/.idea/nelayan.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CInstansi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CUser.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/app/MInstansi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/dashboardadmin.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/resources/views/loginpage.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/Middleware/VerifyCsrfToken.php" afterPath="$PROJECT_DIR$/main/app/Http/Middleware/VerifyCsrfToken.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/routes.php" afterPath="$PROJECT_DIR$/main/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/resources/views/index.blade.php" afterPath="$PROJECT_DIR$/main/resources/views/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/resources/views/templates/template.blade.php" afterPath="$PROJECT_DIR$/main/resources/views/templates/template.blade.php" />
     </list>
     <ignored path="nelayan.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,7 +69,7 @@
       <file leaf-file-name="ruang.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="0">
               <caret line="50" column="164" lean-forward="false" selection-start-line="50" selection-start-column="164" selection-end-line="50" selection-end-column="164" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -782,7 +776,7 @@
       <workItem from="1492574851547" duration="8400000" />
       <workItem from="1492586022616" duration="6147000" />
       <workItem from="1492613150475" duration="13113000" />
-      <workItem from="1497853853547" duration="7552000" />
+      <workItem from="1497853853547" duration="7646000" />
     </task>
     <task id="LOCAL-00001" summary="Update ke -1">
       <created>1478241001609</created>
@@ -791,11 +785,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478241001609</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="nambah instansi,ruang dll">
+      <created>1497861540142</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1497861540142</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139996000" />
+    <option name="totallyTimeSpent" value="140090000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -845,7 +846,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update ke -1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update ke -1" />
+    <MESSAGE value="nambah instansi,ruang dll" />
+    <option name="LAST_COMMIT_MESSAGE" value="nambah instansi,ruang dll" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1207,7 +1209,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="0">
           <caret line="50" column="164" lean-forward="false" selection-start-line="50" selection-start-column="164" selection-end-line="50" selection-end-column="164" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
