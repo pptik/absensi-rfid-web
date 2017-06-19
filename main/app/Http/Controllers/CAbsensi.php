@@ -21,6 +21,16 @@ class CAbsensi extends Controller
         }
         return  $macs;
     }
+    public function getlistmacbystatus(Request $request)
+    {
+        $documents = DB::collection('maclist')->where('kelasassigned',$request['status'] === 'true'? true: false)->get();
+        $macs=array();
+        foreach ($documents as $value){
+           $mac['mac']=$value['mac'];
+           array_push($macs, $mac);
+        }
+        return  $macs;
+    }
 	 public function get_raw()
     {
 		

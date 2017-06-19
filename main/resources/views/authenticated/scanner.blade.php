@@ -28,7 +28,10 @@
 <meta name="_token" content="{{ csrf_token() }}">
 <script type="text/javascript">
     $(document).ready(function(){
-        var select = document.getElementById("selectInstansi");
+        var selectInstansi = document.getElementById("selectInstansi");
+        var selectKelas = document.getElementById("selectKelas");
+        var selectMac = document.getElementById("selectMac");
+        var submitButton = document.getElementById("submit");
         function windowSize() {
             windowHeight = window.innerHeight ? window.innerHeight : $(window).height();
             windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
@@ -48,58 +51,116 @@
                 selectbox.remove(i);
             }
         }
-        function loaddatainstansi() {
-            $.get('<?=url('instansi/getlist')?>',
-                function(data) {
-
-                    var trHTML = '';
-                    $('#ruangtabelbody').empty();
-                    var count=1;
-                    removeOptions(select);
-                    for (var i = 0; i < data.length; i++) {
-                        var ruang=data[i].ruang;
-                        for(var j=0;j<ruang.length;j++){
-                            if (ruang[j].Nama!=null||ruang[j].Nama!=undefined){
-                                trHTML += '<tr><td>' + count + '</td><td>' + data[i].nama + '</td><td>'+ruang[j].Nama +'</td><td>'+ruang[j].Kode_ruangan + '</td></tr>';
-                                count++;
-                            }
-                        }
-                        var opt = data[i].nama;
-                        var el = document.createElement("option");
-                        el.textContent = opt;
-                        el.value = opt;
-                        select.appendChild(el);
-
-                    };
-                    $('#ruangtabel').append(trHTML);
-                }
-            );
-        }
-        loaddatainstansi();
-        function getByInstansi() {
-            namaInstansi=$("#selectInstansi :selected").text();
-            $.post('<?=url('ruang/byinstansi')?>',{ namaInstansi: namaInstansi},
+        function loaddatascanner() {
+            $.get('<?=url('scanner/getlist')?>',
                     function(data) {
                         var trHTML = '';
-                        $('#ruangtabelbody').empty();
+                        $('#scannertabelbody').empty();
                         var count=1;
 
                         for (var i = 0; i < data.length; i++) {
                             var ruang=data[i].ruang;
                             for(var j=0;j<ruang.length;j++){
                                 if (ruang[j].Nama!=null||ruang[j].Nama!=undefined){
-                                    trHTML += '<tr><td>' + count + '</td><td>' + data[i].nama + '</td><td>'+ruang[j].Nama +'</td><td>'+ruang[j].Kode_ruangan + '</td></tr>';
+                                    trHTML += '<tr><td>' + count + '</td><td>' + data[i].nama + '</td><td>'+ruang[j].Nama +'</td><td>'+ruang[j].Kode_ruangan + '</td><td>'+data[i].mac +'</td></tr>';
                                     count++;
                                 }
                             }
+                        };
+                        $('#scannertabel').append(trHTML);
+                    }
+            );
 
+        }
+        loaddatascanner();
+        function loaddatainstansi() {
+            $.get('<?=url('instansi/getlist')?>',
+                    function(data) {
+                        removeOptions(selectInstansi);
+                        for (var i = 0; i < data.length; i++) {
+                            var opt = data[i].nama;
+                            var el = document.createElement("option");
+                            el.textContent = opt;
+                            el.value = opt;
+                            selectInstansi.appendChild(el);
 
                         };
-                        $('#ruangtabel').append(trHTML);
+                        getByInstansiDefault(data[0].nama);
+                    }
+            );
+
+        }
+        loaddatainstansi();
+        function getByInstansi() {
+            namaInstansi=$("#selectInstansi :selected").text();
+            $.post('<?=url('ruang/byinstansi')?>',{ namaInstansi: namaInstansi},
+                    function(data) {
+                        removeOptions(selectKelas);
+                        for (var i = 0; i < data.length; i++) {
+                            var ruang=data[i].ruang;
+                            for(var j=0;j<ruang.length;j++){
+                                if (ruang[j].Nama!=null||ruang[j].Nama!=undefined){
+                                    var opt = ruang[j].Nama;
+                                    var kode = ruang[j].Kode_ruangan;
+                                    var el = document.createElement("option");
+                                    el.textContent = opt;
+                                    el.value = kode;
+                                    selectKelas.appendChild(el);
+                                }
+                            }
+                        };
+                    }
+
+            );
+            getlistmacbystatus()
+        }
+        function getByInstansiDefault(namaInstansi) {
+            $.post('<?=url('ruang/byinstansi')?>',{ namaInstansi: namaInstansi},
+                    function(data) {
+                        removeOptions(selectKelas);
+                        for (var i = 0; i < data.length; i++) {
+                            var ruang=data[i].ruang;
+                            for(var j=0;j<ruang.length;j++){
+                                if (ruang[j].Nama!=null||ruang[j].Nama!=undefined){
+                                    var opt = ruang[j].Nama;
+                                    var kode = ruang[j].Kode_ruangan;
+                                    var el = document.createElement("option");
+                                    el.textContent = opt;
+                                    el.value = kode;
+                                    selectKelas.appendChild(el);
+                                }
+                            }
+                        };
+                    }
+            );
+            getlistmacbystatus();
+        }
+        $("#selectInstansi").on("change", getByInstansi);
+        function getlistmacbystatus() {
+            $.post('<?=url('absensi/get_listmacbystatus')?>',{ status: false},
+                    function(data) {
+                        removeOptions(selectMac);
+                        if (data.length==0){
+                            var opt = "No Free Device";
+                            var el = document.createElement("option");
+                            el.textContent = opt;
+                            el.value = opt;
+                            selectMac.appendChild(el);
+
+                        }else {
+                            for (var i = 0; i < data.length; i++) {
+                                var opt = data[i].mac;
+                                var el = document.createElement("option");
+                                el.textContent = opt;
+                                el.value = opt;
+                                selectMac.appendChild(el);
+                            };
+                            submitButton.disabled=false;
+                        }
                     }
             );
         }
-        $("#selectInstansi").on("change", getByInstansi);
+        $("#selectKelas").on("change", getlistmacbystatus);
         $(".openbtn").on("click", function() {
             $(".ui.sidebar").toggleClass("very thin icon");
             $(".asd").toggleClass("marginlefting");
@@ -132,8 +193,8 @@
 <div class="pusher">
     <div class="ui large secondary pointing menu" style="-webkit-transition-duration: 0.1s;">
         <a class=" item" href="{{url('/')}}">Instansi</a>
-        <a class="active item" href="{{url('/ruang')}}">Ruang</a>
-        <a class=" item" href="{{url('/scanner')}}" >Scanner</a>
+        <a class=" item" href="{{url('/ruang')}}">Ruang</a>
+        <a class="active item" href="{{url('/')}}" >Scanner</a>
         <a class=" item" href="{{url('/')}}" >Jadwal</a>
         <div class="right menu">
             <div class="ui dropdown item">
@@ -152,7 +213,7 @@
         <div class="ui segment">
             <div class="ui grid">
                 <div class="sixteen wide column">
-                    <form class="ui form" method="post" action="{{url('ruang/tambah')}}">
+                    <form class="ui form" method="post" action="{{url('scanner/tambah')}}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 
                         @if (count($errors) > 0)
@@ -175,12 +236,18 @@
                             </select>
                         </div>
                         <div class="field">
-                            <label>Nama Kelas</label>
-                            <input type="nama" name="nama" style="width: 100%">
+                            <label>Pilih Kelas</label>
+                            <select id="selectKelas" name="selectKelas">
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Pilih Device Mac</label>
+                            <select id="selectMac" name="selectMac">
+                            </select>
                         </div>
 
 
-                        <button class="ui button" type="submit">Submit</button>
+                        <button class="ui button" type="submit" id="submit" name="submit" disabled>Submit</button>
                     </form>
 
                 </div>
@@ -189,16 +256,17 @@
         </div>
     </div>
     <div class="thirteen wide column" >
-        <table class="ui celled padded table" id="ruangtabel">
+        <table class="ui celled padded table" id="scannertabel">
             <thead>
             <tr>
                 <th>No</th>
                 <th>Instansi</th>
                 <th>Nama Kelas</th>
                 <th>Kode Kelas</th>
+                <th>Scanner</th>
             </tr>
             </thead>
-            <tbody id="ruangtabelbody">
+            <tbody id="scannertabelbody">
 
             </tbody>
         </table>

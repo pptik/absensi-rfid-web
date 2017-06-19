@@ -118,7 +118,7 @@
     <div class="ui large secondary pointing menu" style="-webkit-transition-duration: 0.1s;">
         <a class="active item" href="{{url('/')}}">Instansi</a>
         <a class="item" href="{{url('/ruang')}}">Ruang</a>
-        <a class=" item" href="{{url('/gallery')}}" >Scanner</a>
+        <a class=" item" href="{{url('/scanner')}}" >Scanner</a>
         <a class=" item" href="{{url('/gallery')}}" >Jadwal</a>
         <div class="right menu">
             <div class="ui dropdown item">

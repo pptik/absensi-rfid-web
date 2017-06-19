@@ -22,5 +22,12 @@ class CInformasi extends Controller
         }else{
             return view('index');
         }
+    } 
+    public function scanner(){
+        if (session()->has('ID')) {
+            return view('authenticated.scanner');
+        }else{
+            return view('index');
+        }
     }
 }
