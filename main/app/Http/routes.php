@@ -25,6 +25,7 @@ Route::get('/login', function () {
 });
 Route::get('/ruang', 'CInformasi@ruang');
 Route::get('/scanner', 'CInformasi@scanner');
+Route::get('/jadwal', 'CInformasi@jadwal');
 Route::group(['prefix' => 'user'],function(){
     Route::post('signup','CUser@signup');
     Route::post('signin','CUser@signin_action');
@@ -42,6 +43,9 @@ Route::group(['prefix' => 'ruang'],function(){
 Route::group(['prefix' => 'scanner'],function(){
     Route::post('tambah','CScanner@tambah');
     Route::get('getlist','CScanner@getlistkelasscanner');
+});
+Route::group(['prefix' => 'jadwal'],function(){
+    Route::post('tambah','CJadwal@tambah');
 });
 Route::get('absensi/get_listmac', 'CAbsensi@getlistmac');
 Route::get('absensi/get_allabsensi', 'CAbsensi@get_allabsensi');

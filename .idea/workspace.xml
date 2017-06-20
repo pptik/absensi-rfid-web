@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9641192f-2c76-453d-a81f-fadd99e33992" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CRuang.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CScanner.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/app/MMaclist.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/scanner.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nelayan.iml" afterPath="$PROJECT_DIR$/.idea/nelayan.iml" />
+    <list default="true" id="9641192f-2c76-453d-a81f-fadd99e33992" name="Default" comment="kelas dan mac by ruang">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CJadwal.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/jadwal.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/Controllers/CAbsensi.php" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CAbsensi.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/Controllers/CScanner.php" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CScanner.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/routes.php" afterPath="$PROJECT_DIR$/main/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/resources/views/authenticated/dashboardadmin.blade.php" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/dashboardadmin.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/resources/views/authenticated/scanner.blade.php" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/scanner.blade.php" />
     </list>
     <ignored path="nelayan.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,21 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/resources/views/index.blade.php">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="428" column="60" selection-start-line="428" selection-start-column="11" selection-end-line="428" selection-end-column="60" />
+            <state relative-caret-position="442">
+              <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/app/Http/routes.php">
+      <file leaf-file-name="jadwal.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/jadwal.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
+            <state relative-caret-position="-459">
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -57,11 +53,9 @@
       <file leaf-file-name="ruang.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
+            <state relative-caret-position="1394">
               <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="97" selection-end-column="56" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,18 +63,38 @@
       <file leaf-file-name="scanner.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/scanner.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+            <state relative-caret-position="1258">
+              <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CScanner.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CScanner.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CScanner.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+            <state relative-caret-position="391">
+              <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CJadwal.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CJadwal.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CInstansi.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CInstansi.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="44" column="37" selection-start-line="36" selection-start-column="11" selection-end-line="44" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -96,21 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CRuang.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CRuang.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="36" column="72" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CAbsensi.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CAbsensi.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="25" column="104" selection-start-line="25" selection-start-column="104" selection-end-line="25" selection-end-column="104" />
+            <state relative-caret-position="194">
+              <caret line="82" column="14" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="14" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -118,21 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboardadmin.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/dashboardadmin.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1028">
-              <caret line="120" column="50" selection-start-line="120" selection-start-column="31" selection-end-line="120" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CInformasi.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+            <state relative-caret-position="432">
+              <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -200,15 +194,16 @@
         <option value="$PROJECT_DIR$/main/app/Http/Middleware/VerifyCsrfToken.php" />
         <option value="$PROJECT_DIR$/main/app/MInstansi.php" />
         <option value="$PROJECT_DIR$/main/app/Http/Controllers/CInstansi.php" />
-        <option value="$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php" />
         <option value="$PROJECT_DIR$/main/resources/views/authenticated/dashboardadmin.blade.php" />
         <option value="$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php" />
         <option value="$PROJECT_DIR$/main/app/Http/Controllers/CAbsensi.php" />
         <option value="$PROJECT_DIR$/main/app/Http/Controllers/CRuang.php" />
         <option value="$PROJECT_DIR$/main/app/MMaclist.php" />
-        <option value="$PROJECT_DIR$/main/app/Http/Controllers/CScanner.php" />
-        <option value="$PROJECT_DIR$/main/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/main/resources/views/authenticated/scanner.blade.php" />
+        <option value="$PROJECT_DIR$/main/app/Http/Controllers/CScanner.php" />
+        <option value="$PROJECT_DIR$/main/app/Http/Controllers/CJadwal.php" />
+        <option value="$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php" />
+        <option value="$PROJECT_DIR$/main/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -252,8 +247,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -674,6 +667,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -685,16 +680,16 @@
     <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\main\resources\views\authenticated" />
+      <recent name="C:\xampp\htdocs\main\app\Http\Controllers" />
+      <recent name="C:\xampp\htdocs\main\app" />
+      <recent name="C:\xampp\htdocs\main\resources\views" />
+      <recent name="C:\xampp\htdocs\main\resources\assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/main/resources/assets/images/markers" />
       <recent name="$PROJECT_DIR$/main/resources/assets/images" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\main\app" />
-      <recent name="C:\xampp\htdocs\main\app\Http\Controllers" />
-      <recent name="C:\xampp\htdocs\main\resources\views\authenticated" />
-      <recent name="C:\xampp\htdocs\main\resources\views" />
-      <recent name="C:\xampp\htdocs\main\resources\assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -761,7 +756,8 @@
       <workItem from="1492586022616" duration="6147000" />
       <workItem from="1492613150475" duration="13113000" />
       <workItem from="1497853853547" duration="7646000" />
-      <workItem from="1497882530230" duration="12415000" />
+      <workItem from="1497882530230" duration="15147000" />
+      <workItem from="1497930137480" duration="739000" />
     </task>
     <task id="LOCAL-00001" summary="Update ke -1">
       <created>1478241001609</created>
@@ -777,11 +773,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497861540142</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="kelas dan mac by ruang">
+      <created>1497895085013</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1497895085013</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152505000" />
+    <option name="totallyTimeSpent" value="155976000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -796,15 +799,16 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27313626" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2769923" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22983871" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23252688" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -832,7 +836,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update ke -1" />
     <MESSAGE value="nambah instansi,ruang dll" />
-    <option name="LAST_COMMIT_MESSAGE" value="nambah instansi,ruang dll" />
+    <MESSAGE value="kelas dan mac by ruang" />
+    <option name="LAST_COMMIT_MESSAGE" value="kelas dan mac by ruang" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -841,8 +846,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main/resources/assets/images/cuaca.png" />
-    <entry file="file://$PROJECT_DIR$/main/resources/assets/images/nelayan.png" />
     <entry file="file://$PROJECT_DIR$/main/resources/assets/images/markers/keadaan-laut-marker.png" />
     <entry file="file://$PROJECT_DIR$/main/resources/assets/images/markers/criminal-marker.png" />
     <entry file="file://$PROJECT_DIR$/main/resources/assets/images/markers/weather-marker.png" />
@@ -871,7 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="99" column="82" selection-start-line="99" selection-start-column="82" selection-end-line="99" selection-end-column="82" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,7 +953,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="37" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,9 +1007,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="39" column="74" selection-start-line="39" selection-start-column="74" selection-end-line="39" selection-end-column="74" />
-          <folding>
-            <element signature="e#45#58#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1064,53 +1062,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CInstansi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="24" selection-end-column="25" />
-          <folding>
-            <element signature="e#39#67#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/resources/views/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
+        <state relative-caret-position="7276">
           <caret line="428" column="60" selection-start-line="428" selection-start-column="11" selection-end-line="428" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/dashboardadmin.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1028">
+        <state relative-caret-position="2040">
           <caret line="120" column="50" selection-start-line="120" selection-start-column="31" selection-end-line="120" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CAbsensi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="25" column="104" selection-start-line="25" selection-start-column="104" selection-end-line="25" selection-end-column="104" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CRuang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="476">
           <caret line="36" column="72" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="72" />
           <folding />
         </state>
@@ -1124,36 +1094,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
+        <state relative-caret-position="1394">
           <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="97" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/scanner.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+        <state relative-caret-position="1258">
+          <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CScanner.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+        <state relative-caret-position="391">
+          <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CInstansi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="44" column="37" selection-start-line="36" selection-start-column="11" selection-end-line="44" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CAbsensi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="82" column="14" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="14" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CJadwal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/jadwal.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="19" />
           <folding />
         </state>
       </provider>

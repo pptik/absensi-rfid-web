@@ -45,6 +45,7 @@ class CScanner extends Controller{
         }
         return  $dataset;
     }
+
     public function tambah(Request $request)
     {
 

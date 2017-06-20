@@ -29,5 +29,12 @@ class CInformasi extends Controller
         }else{
             return view('index');
         }
+    } 
+    public function jadwal(){
+        if (session()->has('ID')) {
+            return view('authenticated.jadwal');
+        }else{
+            return view('index');
+        }
     }
 }
