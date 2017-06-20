@@ -134,7 +134,7 @@
         <a class=" item" href="{{url('/')}}">Instansi</a>
         <a class="active item" href="{{url('/ruang')}}">Ruang</a>
         <a class=" item" href="{{url('/scanner')}}" >Scanner</a>
-        <a class=" item" href="{{url('/')}}" >Jadwal</a>
+        <a class=" item" href="{{url('/jadwal')}}" >Jadwal</a>
         <div class="right menu">
             <div class="ui dropdown item">
                 Pengaturan <i class="dropdown icon"></i>

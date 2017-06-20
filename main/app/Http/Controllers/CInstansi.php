@@ -19,7 +19,7 @@ class CInstansi extends Controller{
         foreach ($documents as $value){
             $data['nama']=$value['Nama'];
             $data['ruang']=$value['Ruang'];
-            $data['id']=$value['_id'];
+            $data['id']=(string)$value['_id'];
             array_push($dataset, $data);
         }
         return  $dataset;

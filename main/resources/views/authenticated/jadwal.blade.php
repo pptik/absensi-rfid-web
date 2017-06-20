@@ -32,6 +32,7 @@
         var selectKelas = document.getElementById("selectKelas");
         var selectMac = document.getElementById("selectMac");
         var submitButton = document.getElementById("submit");
+        var inputNamaMatpel = document.getElementById("namaMatpel");
         function windowSize() {
             windowHeight = window.innerHeight ? window.innerHeight : $(window).height();
             windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
@@ -82,7 +83,7 @@
                             var opt = data[i].nama;
                             var el = document.createElement("option");
                             el.textContent = opt;
-                            el.value = opt;
+                            el.value =  data[i].id;
                             selectInstansi.appendChild(el);
 
                         };
@@ -113,7 +114,7 @@
                     }
 
             );
-            getlistmacbystatus()
+
         }
         function getByInstansiDefault(namaInstansi) {
             $.post('<?=url('ruang/byinstansi')?>',{ namaInstansi: namaInstansi},
@@ -134,34 +135,8 @@
                         };
                     }
             );
-            getlistmacbystatus();
         }
         $("#selectInstansi").on("change", getByInstansi);
-        function getlistmacbystatus() {
-            $.post('<?=url('absensi/get_listmacbystatus')?>',{ status: false},
-                    function(data) {
-                        removeOptions(selectMac);
-                        if (data.length==0){
-                            var opt = "No Free Device";
-                            var el = document.createElement("option");
-                            el.textContent = opt;
-                            el.value = opt;
-                            selectMac.appendChild(el);
-
-                        }else {
-                            for (var i = 0; i < data.length; i++) {
-                                var opt = data[i].mac;
-                                var el = document.createElement("option");
-                                el.textContent = opt;
-                                el.value = opt;
-                                selectMac.appendChild(el);
-                            };
-                            submitButton.disabled=false;
-                        }
-                    }
-            );
-        }
-        $("#selectKelas").on("change", getlistmacbystatus);
         $(".openbtn").on("click", function() {
             $(".ui.sidebar").toggleClass("very thin icon");
             $(".asd").toggleClass("marginlefting");
@@ -185,7 +160,72 @@
 
             }
         });
+        $('#rangestart').calendar({
+            type: 'time',
+            endCalendar: $('#rangeend'),
+            onChange: function (time, text) {
+                var time = text;
+                var hours = Number(time.match(/^(\d+)/)[1]);
+                var minutes = Number(time.match(/:(\d+)/)[1]);
+                var AMPM = time.match(/\s(.*)$/)[1];
+                if (AMPM == "PM" && hours < 12) hours = hours + 12;
+                if (AMPM == "AM" && hours == 12) hours = hours - 12;
+                var sHours = hours.toString();
+                var sMinutes = minutes.toString();
+                if (hours < 10) sHours = "0" + sHours;
+                if (minutes < 10) sMinutes = "0" + sMinutes;
+                jamawal=sHours+":"+sMinutes+":00 GMT+0700"
+            },
+        });
 
+        $('#rangeend').calendar({
+            type: 'time',
+            startCalendar: $('#rangestart'),
+            onChange: function (time, text) {
+                var time = text;
+                var hours = Number(time.match(/^(\d+)/)[1]);
+                var minutes = Number(time.match(/:(\d+)/)[1]);
+                var AMPM = time.match(/\s(.*)$/)[1];
+                if (AMPM == "PM" && hours < 12) hours = hours + 12;
+                if (AMPM == "AM" && hours == 12) hours = hours - 12;
+                var sHours = hours.toString();
+                var sMinutes = minutes.toString();
+                if (hours < 10) sHours = "0" + sHours;
+                if (minutes < 10) sMinutes = "0" + sMinutes;
+                jamakhir=sHours+":"+sMinutes+":00 GMT+0700";
+                submitButton.disabled=false;
+            },
+        });
+        $('#tanggal').calendar({
+            type: 'date',
+            onChange: function (date, text) {
+                tanggal = text;
+            },
+        });
+        function onclick_search() {
+            if(tanggal==null||jamawal==null||jamakhir==null){
+
+            }else{
+
+                var idInstansi=selectInstansi.options[selectInstansi.selectedIndex].value;
+                var kodeRuangan=selectKelas.options[selectKelas.selectedIndex].value;
+                var nama=inputNamaMatpel.value;
+                var starttime=new Date(tanggal+" "+jamawal).toISOString();
+                var endtime=new Date(tanggal+" "+jamakhir).toISOString();
+                $.post('<?=url('jadwal/tambah')?>',{ selectInstansi:idInstansi ,namaMatpel:nama,selectRuangan:kodeRuangan, starttime: starttime ,endtime: endtime},
+                        function(data) {
+                            window.location.reload(true);
+
+                        }
+                );
+
+            }
+
+
+
+
+        }
+        $("#submit").on("click", onclick_search);
     });
 
 
@@ -195,8 +235,8 @@
     <div class="ui large secondary pointing menu" style="-webkit-transition-duration: 0.1s;">
         <a class=" item" href="{{url('/')}}">Instansi</a>
         <a class=" item" href="{{url('/ruang')}}">Ruang</a>
-        <a class="active item" href="{{url('/')}}" >Scanner</a>
-        <a class=" item" href="{{url('/')}}" >Jadwal</a>
+        <a class=" item" href="{{url('/scanner')}}" >Scanner</a>
+        <a class="active item" href="{{url('/jadwal')}}" >Jadwal</a>
         <div class="right menu">
             <div class="ui dropdown item">
                 Pengaturan <i class="dropdown icon"></i>
@@ -214,7 +254,6 @@
         <div class="ui segment">
             <div class="ui grid">
                 <div class="sixteen wide column">
-                    <form class="ui form" method="post" action="{{url('scanner/tambah')}}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 
                         @if (count($errors) > 0)
@@ -242,14 +281,33 @@
                             </select>
                         </div>
                         <div class="field">
-                            <label>Pilih Device Mac</label>
-                            <select id="selectMac" name="selectMac">
-                            </select>
+                            <label>Nama Subject</label>
+                            <input class="ui input" type="namaMatpel" name="namaMatpel"id="namaMatpel">
+                        </div>
+                        <label>Pilih Tanggal</label>
+                        <div class="ui calendar" id="tanggal">
+                            <div class="ui input left icon">
+                                <i class="calendar icon"></i>
+                                <input type="text" placeholder="Tanggal">
+                            </div>
+                        </div>
+                        <label>Waktu Mulai</label>
+                        <div class="ui calendar" id="rangestart">
+                            <div class="ui input left icon">
+                                <i class="calendar icon"></i>
+                                <input type="text" placeholder="Mulai">
+                            </div>
+                        </div>
+                        <label>Waktu Berakhir</label>
+                        <div class="ui calendar" id="rangeend">
+                            <div class="ui input left icon">
+                                <i class="calendar icon"></i>
+                                <input type="text" placeholder="Akhir">
+                            </div>
                         </div>
 
+                        <button class="ui primary button" id="submit" name="submit" disabled>Submit</button>
 
-                        <button class="ui button" type="submit" id="submit" name="submit" disabled>Submit</button>
-                    </form>
 
                 </div>
 

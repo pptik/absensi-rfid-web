@@ -26,7 +26,7 @@ class CJadwal extends Controller{
             'Start'=>$start,
             'End'=>$end
         ];
-        DB::table('instansi')->insert($dataarray);
-        return Redirect::to('/jadwal');
+        $document=DB::table('jadwal')->insert($dataarray);
+        return  Session::flash('message', 'Berhasil Menambah jadwal');
     }
 }
