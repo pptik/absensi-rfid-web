@@ -26,16 +26,16 @@ class CInstansi extends Controller{
     }
     public function tambah(Request $request)
     {
-
+        $nama=trim($request['nama']);
         $documents = DB::collection('instansi')
-            -> where('Nama',$request['nama'])
+            -> where('Nama','like',$nama)
             ->get();
         if ($documents){
             Session::flash('message', 'Nama Instansi Sudah Terdaftar');
             return Redirect::to('/');
         }else{
             $dataarray[]=[
-                'Nama'=>$request['nama'],
+                'Nama'=>$nama,
                 'Ruang'=>[[
 
                 ],
