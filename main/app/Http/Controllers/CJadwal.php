@@ -79,6 +79,37 @@ class CJadwal extends Controller{
         }
         return $dataset;
     }
+    public function getlistabsenbyjadwal(Request $request)
+    {
+        $jadwal=DB::table('jadwal')
+            ->where("Kode_jadwal","like",$request['Kode_jadwal'])
+            ->first();
+        $maclist=DB::table('maclist')
+            ->where("koderuangan",'like',$jadwal['Kode_ruangan'])
+            ->get();
+        $jadwal['id']=(string)$jadwal['_id'];
+        unset($jadwal['_id']);
+        $arrMacList=array();
+        foreach ($maclist as $m){
+           $listabsen= DB::collection($m["mac"])
+                ->whereBetween('date', array($jadwal["Start"], $jadwal["End"]))
+                ->get();
+            $listabsensis=array();
+            foreach ($listabsen as $value){
+                $listabsensi['rf_id']=$value['rf_id'];
+                foreach ($value['date'] as $dates){
+                    $listabsensi['date']=date("D, d-m-Y", $dates/1000);
+                    $listabsensi['time']=date("H:i:s", $dates/1000);
+                }
+                array_push($listabsensis, $listabsensi);
+            }
+            $m['List_absen']=$listabsensis;
+            array_push($arrMacList,$m);
+        }
+
+        $jadwal['maclist']=$arrMacList;
+        return $jadwal;
+    }
     public function getnamainstansi($instansiid){
         $documents=DB::table('instansi')
             ->where("_id","=",$instansiid)

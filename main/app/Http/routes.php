@@ -53,7 +53,7 @@ Route::group(['prefix' => 'jadwal'],function(){
     Route::post('tambah','CJadwal@tambah');
     Route::post('delete','CJadwal@deletejadwal');
     Route::get('listall','CJadwal@getlistjadwal');
-    Route::get('test','CJadwal@test');
+    Route::post('test','CJadwal@getlistabsenbyjadwal');
 });
 Route::get('absensi/get_listmac', 'CAbsensi@getlistmac');
 Route::get('absensi/get_allabsensi', 'CAbsensi@get_allabsensi');
