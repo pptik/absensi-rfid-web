@@ -54,21 +54,7 @@
         function loaddatascanner() {
             $.get('<?=url('scanner/getlist')?>',
                     function(data) {
-                        var trHTML = '';
-                        $('#scannertabelbody').empty();
-                        var count=1;
-                        var k=0;
-                        for (var i = 0; i < data.length; i++) {
-                            var ruang=data[i].ruang;
-                            for(var j=0;j<ruang.length;j++){
-                                if (ruang[j].Nama!=null||ruang[j].Nama!=undefined){
-                                    trHTML += '<tr><td>' + count + '</td><td>' + data[i].nama + '</td><td>'+ruang[j].Nama +'</td><td>'+ruang[j].Kode_ruangan + '</td><td>'+data[i].mac +'</td></tr>';
-                                    count++;
-                                    k++;
-                                }
-                            }
-                        };
-                        $('#scannertabel').append(trHTML);
+                       loadtabelscanner(data,1);
                     }
             );
 
@@ -186,14 +172,87 @@
             }
         });
 
+        function loadtabelscanner(data,x) {
+
+            $("#scannertabel tr").remove();
+            var table = document.getElementById("scannertabel");
+            var thead, tr, td;
+            table.appendChild(thead = document.createElement("thead"));
+            thead.appendChild(tr = document.createElement("tr"));
+            tr.appendChild(td = document.createElement("td"));
+            td.innerHTML = "No";
+            tr.appendChild(td = document.createElement("td"));
+            td.innerHTML = "Nama Instansi";
+            tr.appendChild(td = document.createElement("td"));
+            td.innerHTML = "Nama Kelas";
+            tr.appendChild(td = document.createElement("td"));
+            td.innerHTML = "Kode Kelas";
+            tr.appendChild(td = document.createElement("td"));
+            td.innerHTML = "Scanner";
+            tr.appendChild(td = document.createElement("td"));
+            td.innerHTML = "Aksi";
+            var count=1;
+            var btn=new Array();
+            var countBtn=0;
+            for (var i = 0; i < data.length; i++) {
+                var ruang=data[i].ruanganlist;
+                for(var j=0;j<ruang.length;j++){
+                    countBtn++
+                    if (ruang[j].Nama_ruangan!=null||ruang[j].Nama_ruangan!=undefined){
+                        tr = document.createElement("tr");
+                        tr.setAttribute("id", "row" + i);
+                        if (i%2 == 0)
+                        {
+                            tr.setAttribute("style", "background:white");
+                        }
+                        table.appendChild(tr);
+                        tr.appendChild(td = document.createElement("td"));
+                        td.innerHTML =count;
+                        tr.appendChild(td = document.createElement("td"));
+                        td.innerHTML =data[i].nama;
+                        tr.appendChild(td = document.createElement("td"));
+                        td.innerHTML =ruang[j].Nama_ruangan;
+                        tr.appendChild(td = document.createElement("td"));
+                        td.innerHTML =ruang[j].Kode_ruangan ;
+                        tr.appendChild(td = document.createElement("td"));
+                        td.innerHTML =ruang[j].mac ;
+                        tr.appendChild(td = document.createElement("td"));
+                        btn[countBtn] = document.createElement('input');
+                        btn[countBtn].type = "button";
+                        btn[countBtn].id = "button"+countBtn;
+                        btn[countBtn].name = "button"+countBtn;
+                        btn[countBtn].className = "ui red button";
+                        btn[countBtn].value = "Remove Scanner";
+                        btn[countBtn].nama=data[i].nama;
+                        btn[countBtn].namaruangan=ruang[j].Nama;
+                        btn[countBtn].koderuangan=ruang[j].Kode_ruangan;
+                        btn[countBtn].macID=ruang[j].mac;
+                        td.appendChild(btn[countBtn]);
+                        $("#button"+countBtn+"").click(function () {
+                           removeScannerFromRuang($(this).prop("macID"));
+                        });
+                        count++;
+                    }
+                }
+            };
+
+        }
+        function removeScannerFromRuang(macid) {
+            $.post('<?=url('scanner/remove')?>',{ macID:macid},
+                function(data) {
+                    window.location.reload();
+                }
+            );
+        };
     });
 
 
 </script>
 
-<div class="pusher">
-    <div class="ui large secondary pointing menu" style="-webkit-transition-duration: 0.1s;">
-        <a class=" item" href="{{url('/')}}">Instansi</a>
+<div class="pusher" style="padding-left:5%;padding-right: 5%">
+    <div class="ui secondary pointing menu" style="padding: 5px">
+        <a class="item" href="{{url('/')}}">Home</a>
+        <a class=" item" href="{{url('/instansi')}}">Instansi</a>
         <a class=" item" href="{{url('/ruang')}}">Ruang</a>
         <a class="active item" href="{{url('/scanner')}}" >Scanner</a>
         <a class=" item" href="{{url('/jadwal')}}" >Jadwal</a>
@@ -258,18 +317,7 @@
     </div>
     <div class="thirteen wide column" >
         <table class="ui celled padded table" id="scannertabel">
-            <thead>
-            <tr>
-                <th>No</th>
-                <th>Instansi</th>
-                <th>Nama Kelas</th>
-                <th>Kode Kelas</th>
-                <th>Scanner</th>
-            </tr>
-            </thead>
-            <tbody id="scannertabelbody">
 
-            </tbody>
         </table>
 
     </div>

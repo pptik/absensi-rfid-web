@@ -27,20 +27,37 @@ class CScanner extends Controller{
     public function getlistkelasscanner(){
         $documents=DB::table('instansi')->get();
         $dataset=array();
+
         foreach ($documents as $value){
+            $maclist=array();
             $data['nama']=$value['Nama'];
             $data['ruang']=$value['Ruang'];
-            $data['id']=$value['_id'];
+            $data['id']=(string)$value['_id'];
             foreach ($value['Ruang'] as $value2){
                 $documents2=DB::table('maclist')->where('koderuangan',$value2['Kode_ruangan'])->get();
                 if($documents2){
                     foreach ($documents2 as $value3){
-                        $data['mac']=$value3['mac'];
+                        $value3['idmaclist']=(string)$value3['_id'];
+                        $value3['Nama_ruangan']=$value2['Nama'];
+                        $value3['Kode_ruangan']=$value2['Kode_ruangan'];
+                        unset($value3['koderuangan']);
+                        unset($data['ruang']);
+                        unset($value3['_id']);
+                        array_push($maclist,$value3);
                     }
                 }else{
-                    $data['mac']='';
+                    $value3['mac']=null;
+                    $value3['kelasassigned']=false;
+                    $value3['Kode_ruangan']=null;
+                    $value3['idmaclist']=null;
+                    $value3['Nama_ruangan']=$value2['Nama'];
+                    $value3['Kode_ruangan']=$value2['Kode_ruangan'];
+                    unset($data['koderuangan']);
+                    unset($data['ruang']);
+                    array_push($maclist,$value3);
                 }
             }
+            $data['ruanganlist']=$maclist;
             array_push($dataset, $data);
         }
         return  $dataset;
@@ -49,9 +66,20 @@ class CScanner extends Controller{
     public function tambah(Request $request)
     {
 
-        DB::table('maclist')->where('mac',$request['selectMac'])->update([
+        $document= DB::table('maclist')->where('mac',$request['selectMac'])->update([
             'kelasassigned'=>true,
             'koderuangan'=>$request['selectKelas']
+        ]);
+        if ($document){
+            //$document=DB::table('instansi')->
+        }
+        return Redirect::to('/scanner');
+    }
+    public function removeScanner(Request $request)
+    {
+        $document= DB::table('maclist')->where('mac',$request['macID'])->update([
+            'kelasassigned'=>false,
+            'koderuangan'=>""
         ]);
         return Redirect::to('/scanner');
     }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use DB;
 use phpDocumentor\Reflection\Types\String_;
+use SebastianBergmann\Environment\Console;
 use Session;
 use Redirect;
 use Hash;
@@ -19,7 +20,7 @@ class CInstansi extends Controller{
         foreach ($documents as $value){
             $data['nama']=$value['Nama'];
             $data['ruang']=$value['Ruang'];
-            $data['id']=(string)$value['_id'];
+            $data['idinstansi']=(string)$value['_id'];
             array_push($dataset, $data);
         }
         return  $dataset;
@@ -42,6 +43,19 @@ class CInstansi extends Controller{
                 ],
             ];
             DB::table('instansi')->insert($dataarray);
+            return Redirect::to('/');
+        }
+    }
+    public function delete(Request $request){
+        $instansiID=$request['instansiID'];
+        $documents = DB::collection('instansi')
+            -> where('_id','=',$instansiID)
+            ->delete();
+        if ($documents){
+            Session::flash('message', 'Instansi Berhasil Dihapus');
+            return Redirect::to('/');
+        }else{
+            Session::flash('message', 'Instansi Gagal Dihapus');
             return Redirect::to('/');
         }
     }

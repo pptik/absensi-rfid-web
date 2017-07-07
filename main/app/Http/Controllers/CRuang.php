@@ -10,6 +10,7 @@ use Session;
 use Redirect;
 use Hash;
 use App\MInstansi;
+use Log;
 class CRuang extends Controller{
 
 
@@ -46,6 +47,15 @@ class CRuang extends Controller{
             ];
             DB::table('instansi')->where('Nama',$request['selectInstansi'])->push('Ruang',$dataarray);
             return Redirect::to('/ruang');
+    }
+    public function delete(Request $request)
+    {
+        $dataarray[]=[
+            'Nama'=>$request['nama'],
+            'Kode_ruangan'=>$request['koderuangan']
+        ];
+        $document=DB::table('instansi')->where('Nama','like',$request['namainstansi'])->pull('Ruang',$dataarray);
+        return $document;
     }
 
     public function generateRandomString($length = 5) {

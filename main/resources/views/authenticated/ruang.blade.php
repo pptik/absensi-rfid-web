@@ -52,26 +52,8 @@
             $.get('<?=url('instansi/getlist')?>',
                 function(data) {
 
-                    var trHTML = '';
-                    $('#ruangtabelbody').empty();
-                    var count=1;
-                    removeOptions(select);
-                    for (var i = 0; i < data.length; i++) {
-                        var ruang=data[i].ruang;
-                        for(var j=0;j<ruang.length;j++){
-                            if (ruang[j].Nama!=null||ruang[j].Nama!=undefined){
-                                trHTML += '<tr><td>' + count + '</td><td>' + data[i].nama + '</td><td>'+ruang[j].Nama +'</td><td>'+ruang[j].Kode_ruangan + '</td></tr>';
-                                count++;
-                            }
-                        }
-                        var opt = data[i].nama;
-                        var el = document.createElement("option");
-                        el.textContent = opt;
-                        el.value = opt;
-                        select.appendChild(el);
+                   loadtabelinstansi(data,1);
 
-                    };
-                    $('#ruangtabel').append(trHTML);
                 }
             );
         }
@@ -80,23 +62,81 @@
             namaInstansi=$("#selectInstansi :selected").text();
             $.post('<?=url('ruang/byinstansi')?>',{ namaInstansi: namaInstansi},
                     function(data) {
-                        var trHTML = '';
-                        $('#ruangtabelbody').empty();
-                        var count=1;
-
-                        for (var i = 0; i < data.length; i++) {
-                            var ruang=data[i].ruang;
-                            for(var j=0;j<ruang.length;j++){
-                                if (ruang[j].Nama!=null||ruang[j].Nama!=undefined){
-                                    trHTML += '<tr><td>' + count + '</td><td>' + data[i].nama + '</td><td>'+ruang[j].Nama +'</td><td>'+ruang[j].Kode_ruangan + '</td></tr>';
-                                    count++;
-                                }
-                            }
-
-
-                        };
-                        $('#ruangtabel').append(trHTML);
+                        loadtabelinstansi(data,2);
                     }
+            );
+        }
+        function loadtabelinstansi(data,x) {
+            if(x==1)removeOptions(select);
+            $("#ruangtabel tr").remove();
+            var table = document.getElementById("ruangtabel");
+            var thead, tr, td;
+            table.appendChild(thead = document.createElement("thead"));
+            thead.appendChild(tr = document.createElement("tr"));
+            tr.appendChild(td = document.createElement("td"));
+            td.innerHTML = "No";
+            tr.appendChild(td = document.createElement("td"));
+            td.innerHTML = "Nama Instansi";
+            tr.appendChild(td = document.createElement("td"));
+            td.innerHTML = "Nama Kelas";
+            tr.appendChild(td = document.createElement("td"));
+            td.innerHTML = "Kode Kelas";
+            tr.appendChild(td = document.createElement("td"));
+            td.innerHTML = "Aksi";
+            var count=1;
+            var btn=new Array();
+            var countBtn=0;
+            for (var i = 0; i < data.length; i++) {
+                if (x==1){
+                    var opt = data[i].nama;
+                    var el = document.createElement("option");
+                    el.textContent = opt;
+                    el.value = opt;
+                    select.appendChild(el);
+                }
+                var ruang=data[i].ruang;
+                for(var j=0;j<ruang.length;j++){
+                    countBtn++
+                    if (ruang[j].Nama!=null||ruang[j].Nama!=undefined){
+                        tr = document.createElement("tr");
+                        tr.setAttribute("id", "row" + i);
+                        if (i%2 == 0)
+                        {
+                            tr.setAttribute("style", "background:white");
+                        }
+                        table.appendChild(tr);
+                        tr.appendChild(td = document.createElement("td"));
+                        td.innerHTML =count;
+                        tr.appendChild(td = document.createElement("td"));
+                        td.innerHTML =data[i].nama;
+                        tr.appendChild(td = document.createElement("td"));
+                        td.innerHTML =ruang[j].Nama;
+                        tr.appendChild(td = document.createElement("td"));
+                        td.innerHTML =ruang[j].Kode_ruangan ;
+                        tr.appendChild(td = document.createElement("td"));
+                        btn[countBtn] = document.createElement('input');
+                        btn[countBtn].type = "button";
+                        btn[countBtn].id = "button"+countBtn;
+                        btn[countBtn].name = "button"+countBtn;
+                        btn[countBtn].className = "ui red button";
+                        btn[countBtn].value = "delete";
+                        btn[countBtn].nama=data[i].nama;
+                        btn[countBtn].namaruangan=ruang[j].Nama;
+                        btn[countBtn].koderuangan=ruang[j].Kode_ruangan;
+                        td.appendChild(btn[countBtn]);
+                        $("#button"+countBtn+"").click(function () {
+                            deleteruang($(this).prop("nama"),$(this).prop("koderuangan"),$(this).prop("namaruangan"))
+                        });
+                        count++;
+                    }
+                }
+            }
+        };
+        function deleteruang(namainstansi,koderuangan,nama) {
+            $.post('<?=url('ruang/delete')?>',{ namainstansi:namainstansi,koderuangan:koderuangan,nama:nama},
+                function(data) {
+                    window.location.reload();
+                }
             );
         }
         $("#selectInstansi").on("change", getByInstansi);
@@ -129,9 +169,10 @@
 
 </script>
 
-<div class="pusher">
-    <div class="ui large secondary pointing menu" style="-webkit-transition-duration: 0.1s;">
-        <a class=" item" href="{{url('/')}}">Instansi</a>
+<div class="pusher" style="padding-left:5%;padding-right: 5%">
+    <div class="ui secondary pointing menu" style="padding: 5px">
+        <a class="item" href="{{url('/')}}">Home</a>
+        <a class=" item" href="{{url('/instansi')}}">Instansi</a>
         <a class="active item" href="{{url('/ruang')}}">Ruang</a>
         <a class=" item" href="{{url('/scanner')}}" >Scanner</a>
         <a class=" item" href="{{url('/jadwal')}}" >Jadwal</a>
@@ -190,17 +231,7 @@
     </div>
     <div class="thirteen wide column" >
         <table class="ui celled padded table" id="ruangtabel">
-            <thead>
-            <tr>
-                <th>No</th>
-                <th>Instansi</th>
-                <th>Nama Kelas</th>
-                <th>Kode Kelas</th>
-            </tr>
-            </thead>
-            <tbody id="ruangtabelbody">
 
-            </tbody>
         </table>
 
     </div>

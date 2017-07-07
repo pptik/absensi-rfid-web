@@ -6,14 +6,22 @@
     <div class="ui container" style="width: 100% ;height: 100%;padding-left:5%;padding-right: 5% ">
         <div class="ui secondary pointing menu" style="padding: 5px" >
 
-            <div class="left menu">
-                <h1>Absensi</h1>
-            </div>
+            <a class="active item" href="{{url('/')}}">Home</a>
+            <a class=" item" href="{{url('/instansi')}}">Instansi</a>
+            <a class=" item" href="{{url('/ruang')}}">Ruang</a>
+            <a class=" item" href="{{url('/scanner')}}" >Scanner</a>
+            <a class=" item" href="{{url('/jadwal')}}" >Jadwal</a>
             <div class="right menu">
-                <a class="item" href="{{url('/login')}}">Login</a>
+                <div class="ui dropdown item">
+                    Pengaturan <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item">Akun</a>
+                        <a href="{{url('user/logout')}}"  class="item">Logout</a>
+                    </div>
+                </div>
             </div>
         </div>
-
+        <a class=" item" href="{{url('/absen/jadwal')}}">Lihat Berdasarkan Jadwal</a>
         <div id="containermac" name="containermac" class="ui form">
             <label>Device</label>
         </div>
@@ -487,7 +495,29 @@
 
             return (sa);
             }
+            $(".openbtn").on("click", function() {
+            $(".ui.sidebar").toggleClass("very thin icon");
+            $(".asd").toggleClass("marginlefting");
+            $(".sidebar z").toggleClass("displaynone");
+            $(".ui.accordion").toggleClass("displaynone");
+            $(".ui.dropdown.item").toggleClass("displayblock");
+            $(".logo").find('img').toggle();
+            if(!isMobile) isMobile = true;
+            else isMobile = false;
 
+            })
+            $(".ui.dropdown").dropdown({
+            allowCategorySelection: true,
+            transition: "fade up",
+            context: 'sidebar',
+            on: "hover"
+            });
+
+            $('.ui.accordion').accordion({
+            selector: {
+
+            }
+            });
         @endsection
 
 

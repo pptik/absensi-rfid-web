@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9641192f-2c76-453d-a81f-fadd99e33992" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nelayan.iml" afterPath="$PROJECT_DIR$/.idea/nelayan.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/index.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/lihatjadwal.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/Controllers/CInstansi.php" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CInstansi.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/Controllers/CJadwal.php" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CJadwal.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/Controllers/CRuang.php" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CRuang.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/Controllers/CScanner.php" afterPath="$PROJECT_DIR$/main/app/Http/Controllers/CScanner.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/app/Http/routes.php" afterPath="$PROJECT_DIR$/main/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/resources/views/authenticated/dashboardadmin.blade.php" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/dashboardadmin.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/resources/views/authenticated/jadwal.blade.php" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/jadwal.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/resources/views/authenticated/scanner.blade.php" afterPath="$PROJECT_DIR$/main/resources/views/authenticated/scanner.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/resources/views/index.blade.php" afterPath="$PROJECT_DIR$/main/resources/views/index.blade.php" />
     </list>
     <ignored path="nelayan.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,21 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/resources/views/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6766">
-              <caret line="398" column="13" lean-forward="false" selection-start-line="349" selection-start-column="12" selection-end-line="398" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+            <state relative-caret-position="155">
+              <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -48,9 +49,12 @@
       <file leaf-file-name="ruang.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2312">
-              <caret line="136" column="45" lean-forward="false" selection-start-line="136" selection-start-column="45" selection-end-line="136" selection-end-column="45" />
-              <folding />
+            <state relative-caret-position="149">
+              <caret line="172" column="65" lean-forward="false" selection-start-line="172" selection-start-column="65" selection-end-line="172" selection-end-column="65" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,9 +62,12 @@
       <file leaf-file-name="scanner.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/scanner.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3366">
-              <caret line="198" column="45" lean-forward="false" selection-start-line="198" selection-start-column="45" selection-end-line="198" selection-end-column="45" />
-              <folding />
+            <state relative-caret-position="149">
+              <caret line="252" column="65" lean-forward="false" selection-start-line="252" selection-start-column="65" selection-end-line="252" selection-end-column="65" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,19 +75,12 @@
       <file leaf-file-name="jadwal.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/jadwal.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3672">
-              <caret line="216" column="55" lean-forward="false" selection-start-line="216" selection-start-column="55" selection-end-line="216" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CJadwal.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CJadwal.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="27" column="10" lean-forward="true" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
-              <folding />
+            <state relative-caret-position="92">
+              <caret line="286" column="65" lean-forward="false" selection-start-line="286" selection-start-column="65" selection-end-line="286" selection-end-column="65" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,43 +88,62 @@
       <file leaf-file-name="CRuang.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CRuang.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="36" column="72" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="72" />
+            <state relative-caret-position="274">
+              <caret line="45" column="48" lean-forward="false" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CInstansi.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CInstansi.php">
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="44" />
               <folding>
-                <element signature="e#39#67#0#PHP" expanded="true" />
+                <element signature="e#81#149#0#HTML" expanded="true" />
+                <element signature="e#199#219#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboardadmin.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/dashboardadmin.blade.php">
+      <file leaf-file-name="CInformasi.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2057">
-              <caret line="121" column="45" lean-forward="false" selection-start-line="121" selection-start-column="39" selection-end-line="121" selection-end-column="45" />
+            <state relative-caret-position="238">
+              <caret line="36" column="33" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CAbsensi.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CAbsensi.php">
+      <file leaf-file-name="lihatjadwal.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/lihatjadwal.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="62" column="5" lean-forward="false" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
-              <folding>
-                <element signature="e#40#68#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CJadwal.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CJadwal.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/resources/views/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="419">
+              <caret line="29" column="28" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -133,21 +152,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nela</find>
-      <find>idun</find>
-      <find>blits</find>
-      <find>box</find>
-      <find>supor</find>
-      <find>idu</find>
-      <find>searchBox</find>
-      <find>wid</find>
-      <find>px</find>
-      <find>inputBackground</find>
-      <find>input</find>
-      <find>quer</find>
-      <find>report</find>
-      <find>bli</find>
-      <find>abs</find>
       <find>onclick_cctv_video</find>
       <find>onclick_socialreport</find>
       <find>onc</find>
@@ -158,7 +162,26 @@
       <find>domain</find>
       <find>csrf</find>
       <find>form</find>
+      <find>post</find>
+      <find>oncl</find>
+      <find>onclick_manual</find>
+      <find>pos</find>
       <find>instansitabel</find>
+      <find>deleteinstansi</find>
+      <find>ruangtabel</find>
+      <find>alerttest</find>
+      <find>loadtabelinstansi</find>
+      <find>countBtn</find>
+      <find>maclist</find>
+      <find>selectRuangan</find>
+      <find>kodeRuangan</find>
+      <find>onclick_search</find>
+      <find>selectInstansi</find>
+      <find>loadta</find>
+      <find>scanner</find>
+      <find>scannertabel</find>
+      <find>generateRandomString</find>
+      <find>getnamainstansi</find>
     </findStrings>
     <replaceStrings>
       <replace>ruangtabel</replace>
@@ -184,24 +207,25 @@
         <option value="$PROJECT_DIR$/main/.env" />
         <option value="$PROJECT_DIR$/main/config/database.php" />
         <option value="$PROJECT_DIR$/main/app/Http/Controllers/Auth/AuthController.php" />
-        <option value="$PROJECT_DIR$/main/resources/views/index.blade.php" />
         <option value="$PROJECT_DIR$/main/resources/views/loginpage.blade.php" />
         <option value="$PROJECT_DIR$/main/app/Http/Controllers/CUser.php" />
         <option value="$PROJECT_DIR$/main/resources/views/templates/template.blade.php" />
         <option value="$PROJECT_DIR$/main/app/Http/Middleware/VerifyCsrfToken.php" />
         <option value="$PROJECT_DIR$/main/app/MInstansi.php" />
         <option value="$PROJECT_DIR$/main/app/Http/Controllers/CAbsensi.php" />
-        <option value="$PROJECT_DIR$/main/app/Http/Controllers/CRuang.php" />
         <option value="$PROJECT_DIR$/main/app/MMaclist.php" />
+        <option value="$PROJECT_DIR$/main/resources/views/index.blade.php" />
+        <option value="$PROJECT_DIR$/main/app/Http/Controllers/CInstansi.php" />
+        <option value="$PROJECT_DIR$/main/app/Http/Controllers/CRuang.php" />
         <option value="$PROJECT_DIR$/main/app/Http/Controllers/CScanner.php" />
-        <option value="$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php" />
-        <option value="$PROJECT_DIR$/main/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/main/resources/views/authenticated/dashboardadmin.blade.php" />
+        <option value="$PROJECT_DIR$/main/resources/views/authenticated/jadwal.blade.php" />
         <option value="$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php" />
         <option value="$PROJECT_DIR$/main/resources/views/authenticated/scanner.blade.php" />
-        <option value="$PROJECT_DIR$/main/resources/views/authenticated/jadwal.blade.php" />
         <option value="$PROJECT_DIR$/main/app/Http/Controllers/CJadwal.php" />
-        <option value="$PROJECT_DIR$/main/app/Http/Controllers/CInstansi.php" />
+        <option value="$PROJECT_DIR$/main/resources/views/authenticated/index.blade.php" />
+        <option value="$PROJECT_DIR$/main/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php" />
       </list>
     </option>
   </component>
@@ -237,7 +261,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -309,32 +332,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="authenticated" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -354,198 +351,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="semantic" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="semantic" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="semantic" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="semantic" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="semantic" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="globals" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -653,6 +458,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -664,16 +470,16 @@
     <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/main/resources/assets/images/markers" />
+      <recent name="$PROJECT_DIR$/main/resources/assets/images" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\main\resources\views\authenticated" />
       <recent name="C:\xampp\htdocs\main\app\Http\Controllers" />
       <recent name="C:\xampp\htdocs\main\app" />
       <recent name="C:\xampp\htdocs\main\resources\views" />
       <recent name="C:\xampp\htdocs\main\resources\assets" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/main/resources/assets/images/markers" />
-      <recent name="$PROJECT_DIR$/main/resources/assets/images" />
     </key>
   </component>
   <component name="RunManager">
@@ -769,7 +575,10 @@
       <workItem from="1497882530230" duration="15147000" />
       <workItem from="1497930137480" duration="4807000" />
       <workItem from="1499068107157" duration="1436000" />
-      <workItem from="1499158923753" duration="22000" />
+      <workItem from="1499158923753" duration="1218000" />
+      <workItem from="1499310060220" duration="336000" />
+      <workItem from="1499312905155" duration="14198000" />
+      <workItem from="1499396063725" duration="14593000" />
     </task>
     <task id="LOCAL-00001" summary="Update ke -1">
       <created>1478241001609</created>
@@ -799,11 +608,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497930893407</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="remove double insert instansi">
+      <created>1499158973272</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1499158973272</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161502000" />
+    <option name="totallyTimeSpent" value="191825000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -818,13 +634,13 @@
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2857143" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2993921" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22585924" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21276596" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -857,7 +673,8 @@
     <MESSAGE value="nambah instansi,ruang dll" />
     <MESSAGE value="kelas dan mac by ruang" />
     <MESSAGE value="jadwal" />
-    <option name="LAST_COMMIT_MESSAGE" value="jadwal" />
+    <MESSAGE value="remove double insert instansi" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove double insert instansi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -866,8 +683,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main/resources/assets/images/markers/keadaan-laut-marker.png" />
-    <entry file="file://$PROJECT_DIR$/main/resources/assets/images/markers/criminal-marker.png" />
     <entry file="file://$PROJECT_DIR$/main/resources/assets/images/markers/weather-marker.png" />
     <entry file="file://$PROJECT_DIR$/main/bootstrap/app.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1054,7 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2176">
           <caret line="128" column="27" lean-forward="false" selection-start-line="128" selection-start-column="21" selection-end-line="128" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1073,14 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="4" lean-forward="false" selection-start-line="70" selection-start-column="44" selection-end-line="82" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/app/MMaclist.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1091,101 +897,138 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CScanner.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="40" column="36" lean-forward="false" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/dashboardadmin.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="121" column="45" lean-forward="false" selection-start-line="121" selection-start-column="39" selection-end-line="121" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2312">
-          <caret line="136" column="45" lean-forward="false" selection-start-line="136" selection-start-column="45" selection-end-line="136" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/scanner.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3366">
-          <caret line="198" column="45" lean-forward="false" selection-start-line="198" selection-start-column="45" selection-end-line="198" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/resources/views/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6766">
-          <caret line="398" column="13" lean-forward="false" selection-start-line="349" selection-start-column="12" selection-end-line="398" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CRuang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="36" column="72" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+        <state relative-caret-position="313">
+          <caret line="60" column="40" lean-forward="true" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CAbsensi.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="62" column="5" lean-forward="false" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/jadwal.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3672">
-          <caret line="216" column="55" lean-forward="false" selection-start-line="216" selection-start-column="55" selection-end-line="216" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CJadwal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="10" lean-forward="true" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+        <state relative-caret-position="164">
+          <caret line="53" column="12" lean-forward="false" selection-start-line="53" selection-start-column="12" selection-end-line="56" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CInstansi.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="29" />
           <folding>
             <element signature="e#39#67#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="57" column="4" lean-forward="false" selection-start-line="70" selection-start-column="44" selection-end-line="82" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/dashboardadmin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="160" selection-end-column="65" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/jadwal.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="286" column="65" lean-forward="false" selection-start-line="286" selection-start-column="65" selection-end-line="286" selection-end-column="65" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/ruang.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="172" column="65" lean-forward="false" selection-start-line="172" selection-start-column="65" selection-end-line="172" selection-end-column="65" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/scanner.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="252" column="65" lean-forward="false" selection-start-line="252" selection-start-column="65" selection-end-line="252" selection-end-column="65" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CRuang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="45" column="48" lean-forward="false" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/resources/views/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="29" column="28" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/lihatjadwal.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/resources/views/authenticated/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="44" />
+          <folding>
+            <element signature="e#81#149#0#HTML" expanded="true" />
+            <element signature="e#199#219#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CInformasi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="36" column="33" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/app/Http/Controllers/CJadwal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>

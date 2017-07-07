@@ -39,22 +39,65 @@
                 }
             });
         });
+
         function loaddatainstansi() {
             $.get('<?=url('instansi/getlist')?>',
                 function(data) {
 
-                    var trHTML = '';
-                    $('#instansitabelbody').empty();
+                    var table = document.getElementById("instansitabel");
+                    var thead, tr, td;
+                    table.appendChild(thead = document.createElement("thead"));
+                    thead.appendChild(tr = document.createElement("tr"));
+                    tr.appendChild(td = document.createElement("td"));
+                    td.innerHTML = "No";
+                    tr.appendChild(td = document.createElement("td"));
+                    td.innerHTML = "Nama Instansi";
+                    tr.appendChild(td = document.createElement("td"));
+                    td.innerHTML = "Aksi";
                     var count=1;
+                    var btn=new Array();
                     for (var i = 0; i < data.length; i++) {
-                        trHTML += '<tr><td>' + count + '</td><td>' + data[i].nama + '</td></tr>';
+                        tr = document.createElement("tr");
+                        tr.setAttribute("id", "row" + i);
+                        if (i%2 == 0)
+                        {
+                            tr.setAttribute("style", "background:white");
+                        }
+                        table.appendChild(tr);
+                        tr.appendChild(td = document.createElement("td"));
+                        td.innerHTML =count;
+                        tr.appendChild(td = document.createElement("td"));
+                        td.innerHTML =data[i].nama;
+                        tr.appendChild(td = document.createElement("td"));
+                        btn[i] = document.createElement('input');
+                        btn[i].type = "button";
+                        btn[i].id = "button"+i;
+                        btn[i].name = "button"+i;
+                        btn[i].className = "ui red button";
+                        btn[i].value = "delete";
+                        btn[i].nama=data[i].nama;
+                        btn[i].id_instansi=data[i].idinstansi;
+                        td.appendChild(btn[i]);
+                        $("#button"+i+"").click(function () {
+                           deleteinstansi($(this).prop("id_instansi"));
+
+                        });
+
                         count++;
                     };
-                    $('#instansitabel').append(trHTML);
+
                 }
             );
         }
         loaddatainstansi();
+        function deleteinstansi(instansiid) {
+            $.post('<?=url('instansi/delete')?>',{ instansiID:instansiid},
+                function(data) {
+                    window.location.reload();
+                }
+            );
+        }
+
         isLarge = true;
         isMobile = false;
         windowSize();
@@ -114,9 +157,10 @@
 
 </script>
 
-<div class="pusher">
-    <div class="ui large secondary pointing menu" style="-webkit-transition-duration: 0.1s;">
-        <a class="active item" href="{{url('/')}}">Instansi</a>
+<div class="pusher" style="padding-left:5%;padding-right: 5%">
+    <div class="ui secondary pointing menu" style="padding: 5px">
+        <a class="item" href="{{url('/')}}">Home</a>
+        <a class="active item" href="{{url('/instansi')}}">Instansi</a>
         <a class="item" href="{{url('/ruang')}}">Ruang</a>
         <a class=" item" href="{{url('/scanner')}}" >Scanner</a>
         <a class=" item" href="{{url('/jadwal')}}" >Jadwal</a>
@@ -170,15 +214,7 @@
     </div>
     <div class="thirteen wide column" >
         <table class="ui celled padded table" id="instansitabel">
-            <thead>
-            <tr>
-                <th>No</th>
-                <th>Nama Instansi</th>
-            </tr>
-            </thead>
-            <tbody id="instansitabelbody">
 
-            </tbody>
         </table>
 
     </div>
