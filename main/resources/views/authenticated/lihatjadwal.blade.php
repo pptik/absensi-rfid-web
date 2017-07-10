@@ -28,15 +28,6 @@
 <meta name="_token" content="{{ csrf_token() }}">
 <script type="text/javascript">
     $(document).ready(function(){
-        var selectInstansi = document.getElementById("selectInstansi");
-        var selectKelas = document.getElementById("selectKelas");
-        var selectMac = document.getElementById("selectMac");
-        var submitButton = document.getElementById("submit");
-        var inputNamaMatpel = document.getElementById("namaMatpel");
-        function windowSize() {
-            windowHeight = window.innerHeight ? window.innerHeight : $(window).height();
-            windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
-        }
         $(function() {
             $.ajaxSetup({
                 headers: {
@@ -44,23 +35,16 @@
                 }
             });
         });
-        function removeOptions(selectbox)
-        {
-            var i;
-            for(i = selectbox.options.length - 1 ; i >= 0 ; i--)
-            {
-                selectbox.remove(i);
-            }
-        }
-        function loaddatajadwal() {
-            $.get('<?=url('jadwal/listall')?>',
-                    function(data) {
-                       loadtabeljadwal(data)
-                    }
-            );
+        var inputKodeJadwal = document.getElementById("kodeJadwal");
 
+        function searchbyinputtext() {
+            var kodeJadwal=inputKodeJadwal.value;
+            $.post('<?=url('jadwal/listbykode')?>',{ kodeJadwal:kodeJadwal},
+                function(data) {
+                    loadtabeljadwal(data)
+                }
+            );
         }
-        loaddatajadwal();
         function loadtabeljadwal(data) {
             $("#jadwaltabel tr").remove();
             var table = document.getElementById("jadwaltabel");
@@ -70,15 +54,9 @@
             tr.appendChild(td = document.createElement("td"));
             td.innerHTML = "No";
             tr.appendChild(td = document.createElement("td"));
-            td.innerHTML = "Nama Instansi";
+            td.innerHTML = "Kode Jadwal";
             tr.appendChild(td = document.createElement("td"));
-            td.innerHTML = "Kode Ruangan";
-            tr.appendChild(td = document.createElement("td"));
-            td.innerHTML = "Mata Kuliah";
-            tr.appendChild(td = document.createElement("td"));
-            td.innerHTML = "Mulai";
-            tr.appendChild(td = document.createElement("td"));
-            td.innerHTML = "Akhir";
+            td.innerHTML = "Jumlah Peserta";
             tr.appendChild(td = document.createElement("td"));
             td.innerHTML = "Aksi";
             var count=1;
@@ -94,193 +72,31 @@
                 tr.appendChild(td = document.createElement("td"));
                 td.innerHTML =count;
                 tr.appendChild(td = document.createElement("td"));
-                td.innerHTML =data[i].namainstansi;
+                td.innerHTML =data[i].Kode_jadwal;
                 tr.appendChild(td = document.createElement("td"));
-                td.innerHTML =data[i].koderuangan;
-                tr.appendChild(td = document.createElement("td"));
-                td.innerHTML =data[i].nama;
-                tr.appendChild(td = document.createElement("td"));
-                td.innerHTML =data[i].startdate+" | "+data[i].starttime;
-                tr.appendChild(td = document.createElement("td"));
-                td.innerHTML =data[i].enddate+" |"+data[i].endtime;
+                td.innerHTML =data[i].totalabsen;
                 tr.appendChild(td = document.createElement("td"));
                 btn[i] = document.createElement('input');
                 btn[i].type = "button";
                 btn[i].id = "button"+i;
                 btn[i].name = "button"+i;
-                btn[i].className = "ui red button";
-                btn[i].value = "delete";
-                btn[i].nama=data[i].nama;
-                btn[i].idjadwal=data[i].id;
-                btn[i].id_instansi=data[i].idinstansi;
+                btn[i].className = "ui green button";
+                btn[i].value = "Lihat Detail";
+                btn[i].kode=data[i].Kode_jadwal;
                 td.appendChild(btn[i]);
                 $("#button"+i+"").click(function () {
-                    deleteJadwal($(this).prop("idjadwal"));
+                    detailJadwal($(this).prop("kode"));
                 });
 
                 count++;
             };
         }
-        function deleteJadwal(jadwalid) {
-            $.post('<?=url('jadwal/delete')?>',{ jadwalid:jadwalid},
-                function(data) {
-                    window.location.reload();
-                }
-            );
-        }
-        function loaddatainstansi() {
-            $.get('<?=url('instansi/getlist')?>',
-                    function(data) {
-                        removeOptions(selectInstansi);
-                        for (var i = 0; i < data.length; i++) {
-                            var opt = data[i].nama;
-                            var el = document.createElement("option");
-                            el.textContent = opt;
-                            el.value =  data[i].idinstansi;
-                            selectInstansi.appendChild(el);
+        $("#submit1").on("click", searchbyinputtext);
 
-                        };
-                        getByInstansiDefault(data[0].nama);
-                    }
-            );
+        function detailJadwal(kodeJadwal) {
 
         }
-        loaddatainstansi();
-        function getByInstansi() {
-            namaInstansi=$("#selectInstansi :selected").text();
-            $.post('<?=url('ruang/byinstansi')?>',{ namaInstansi: namaInstansi},
-                function(data) {
-                    removeOptions(selectKelas);
-                    for (var i = 0; i < data.length; i++) {
-                        var ruang=data[i].ruang;
-                        for(var j=0;j<ruang.length;j++){
-                            if (ruang[j].Nama!=null||ruang[j].Nama!=undefined){
-                                var opt = ruang[j].Nama;
-                                var kode = ruang[j].Kode_ruangan;
-                                var el = document.createElement("option");
-                                el.textContent = opt;
-                                el.value = kode;
-                                selectKelas.appendChild(el);
-                            }
-                        }
-                    };
-                }
-            );
-
-        }
-        function getByInstansiDefault(namaInstansi) {
-            $.post('<?=url('ruang/byinstansi')?>',{ namaInstansi: namaInstansi},
-                    function(data) {
-                        removeOptions(selectKelas);
-                        for (var i = 0; i < data.length; i++) {
-                            var ruang=data[i].ruang;
-                            for(var j=0;j<ruang.length;j++){
-                                if (ruang[j].Nama!=null||ruang[j].Nama!=undefined){
-                                    var opt = ruang[j].Nama;
-                                    var kode = ruang[j].Kode_ruangan;
-                                    var el = document.createElement("option");
-                                    el.textContent = opt;
-                                    el.value = kode;
-                                    selectKelas.appendChild(el);
-                                }
-                            }
-                        };
-                    }
-            );
-        }
-        $("#selectInstansi").on("change", getByInstansi);
-        $(".openbtn").on("click", function() {
-            $(".ui.sidebar").toggleClass("very thin icon");
-            $(".asd").toggleClass("marginlefting");
-            $(".sidebar z").toggleClass("displaynone");
-            $(".ui.accordion").toggleClass("displaynone");
-            $(".ui.dropdown.item").toggleClass("displayblock");
-            $(".logo").find('img').toggle();
-            if(!isMobile) isMobile = true;
-            else isMobile = false;
-
-        })
-        $(".ui.dropdown").dropdown({
-            allowCategorySelection: true,
-            transition: "fade up",
-            context: 'sidebar',
-            on: "hover"
-        });
-
-        $('.ui.accordion').accordion({
-            selector: {
-
-            }
-        });
-        $('#rangestart').calendar({
-            type: 'time',
-            endCalendar: $('#rangeend'),
-            onChange: function (time, text) {
-                var time = text;
-                var hours = Number(time.match(/^(\d+)/)[1]);
-                var minutes = Number(time.match(/:(\d+)/)[1]);
-                var AMPM = time.match(/\s(.*)$/)[1];
-                if (AMPM == "PM" && hours < 12) hours = hours + 12;
-                if (AMPM == "AM" && hours == 12) hours = hours - 12;
-                var sHours = hours.toString();
-                var sMinutes = minutes.toString();
-                if (hours < 10) sHours = "0" + sHours;
-                if (minutes < 10) sMinutes = "0" + sMinutes;
-                jamawal=sHours+":"+sMinutes+":00 GMT+0700"
-            },
-        });
-
-        $('#rangeend').calendar({
-            type: 'time',
-            startCalendar: $('#rangestart'),
-            onChange: function (time, text) {
-                var time = text;
-                var hours = Number(time.match(/^(\d+)/)[1]);
-                var minutes = Number(time.match(/:(\d+)/)[1]);
-                var AMPM = time.match(/\s(.*)$/)[1];
-                if (AMPM == "PM" && hours < 12) hours = hours + 12;
-                if (AMPM == "AM" && hours == 12) hours = hours - 12;
-                var sHours = hours.toString();
-                var sMinutes = minutes.toString();
-                if (hours < 10) sHours = "0" + sHours;
-                if (minutes < 10) sMinutes = "0" + sMinutes;
-                jamakhir=sHours+":"+sMinutes+":00 GMT+0700";
-                submitButton.disabled=false;
-            },
-        });
-        $('#tanggal').calendar({
-            type: 'date',
-            onChange: function (date, text) {
-                tanggal = text;
-            },
-        });
-        function submitjadwal() {
-            if(tanggal==null||jamawal==null||jamakhir==null){
-
-            }else{
-
-                var idInstansi=selectInstansi.options[selectInstansi.selectedIndex].value;
-                var kodeRuangan=selectKelas.options[selectKelas.selectedIndex].value;
-                var nama=inputNamaMatpel.value;
-                var starttime=new Date(tanggal+" "+jamawal).toISOString();
-                var endtime=new Date(tanggal+" "+jamakhir).toISOString();
-                $.post('<?=url('jadwal/tambah')?>',{ selectInstansi:idInstansi ,namaMatpel:nama,selectRuangan:kodeRuangan, starttime: starttime ,endtime: endtime},
-                        function(data) {
-                            window.location.reload(true);
-
-                        }
-                );
-
-            }
-
-
-
-
-        }
-        $("#submit").on("click", submitjadwal);
     });
-
-
 </script>
 
 <div class="pusher" style="padding-left:5%;padding-right: 5%">
@@ -306,68 +122,36 @@
         <h3>Tambah Ruang</h3>
         <div class="ui segment">
             <div class="ui grid">
-                <div class="sixteen wide column">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-
-                        @if (count($errors) > 0)
-                            <div class="ui ignored negative message">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                        @if ( Session::has('message') )
-                            <div class="ui ignored negative message">
-                                {{ Session::get('message') }}
-                            </div>
-                        @endif
-                        <div class="field">
-                            <label>Pilih Instansi</label>
-                            <select id="selectInstansi" name="selectInstansi">
-                            </select>
+                <div class="sixteen wide column" id="searchbytext">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                    @if (count($errors) > 0)
+                        <div class="ui ignored negative message">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
-                        <div class="field">
-                            <label>Pilih Kelas</label>
-                            <select id="selectKelas" name="selectKelas">
-                            </select>
+                    @endif
+                    @if ( Session::has('message') )
+                        <div class="ui ignored negative message">
+                            {{ Session::get('message') }}
                         </div>
-                        <div class="field">
-                            <label>Nama Subject</label>
-                            <input class="ui input" type="namaMatpel" name="namaMatpel"id="namaMatpel">
-                        </div>
-                        <label>Pilih Tanggal</label>
-                        <div class="ui calendar" id="tanggal">
-                            <div class="ui input left icon">
-                                <i class="calendar icon"></i>
-                                <input type="text" placeholder="Tanggal">
-                            </div>
-                        </div>
-                        <label>Waktu Mulai</label>
-                        <div class="ui calendar" id="rangestart">
-                            <div class="ui input left icon">
-                                <i class="calendar icon"></i>
-                                <input type="text" placeholder="Mulai">
-                            </div>
-                        </div>
-                        <label>Waktu Berakhir</label>
-                        <div class="ui calendar" id="rangeend">
-                            <div class="ui input left icon">
-                                <i class="calendar icon"></i>
-                                <input type="text" placeholder="Akhir">
-                            </div>
-                        </div>
-
-                        <button class="ui primary button" id="submit" name="submit" disabled>Submit</button>
-
-
+                    @endif
+                    <div class="field">
+                        <label>Kode Jadwal</label>
+                        <input class="ui input" type="kodeJadwal" name="kodeJadwal"id="kodeJadwal">
+                    </div>
+                    <button class="ui primary button" id="submit1" name="submit1">Submit</button>
                 </div>
 
             </div>
         </div>
     </div>
     <div class="thirteen wide column" >
+        <div >
+            <h1>Detail Jadwal</h1>
+        </div>
         <table class="ui celled padded table" id="jadwaltabel">
 
         </table>

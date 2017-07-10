@@ -269,7 +269,7 @@
 </div>
 <div  class="ui grid" style="padding: 5%">
     <div id="searchmanual" class="three wide column ui form" >
-        <h3>Tambah Ruang</h3>
+        <h3>Tambah Scanner</h3>
         <div class="ui segment">
             <div class="ui grid">
                 <div class="sixteen wide column">

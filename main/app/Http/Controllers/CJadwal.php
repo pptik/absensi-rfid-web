@@ -79,6 +79,7 @@ class CJadwal extends Controller{
         }
         return $dataset;
     }
+
     public function getlistabsenbyjadwal(Request $request)
     {
         $jadwal=DB::table('jadwal')
@@ -110,12 +111,92 @@ class CJadwal extends Controller{
         $jadwal['maclist']=$arrMacList;
         return $jadwal;
     }
+    public function getdetailjadwalbykode(Request $r){
+        $jadwal=DB::table('jadwal')
+            ->where("Kode_jadwal","like",$r['Kode_jadwal'])
+            ->first();
+        $maclist=DB::table('maclist')
+            ->where("koderuangan",'like',$jadwal['Kode_ruangan'])
+            ->get();
+
+        $jadwal['id']=(string)$jadwal['_id'];
+        $jadwal['Nama_kelas']=$this->getnamakelas($jadwal['Kode_ruangan']);
+        $jadwal['Nama_instansi']=$this->getnamainstansi($jadwal['Instansi_id']);
+        unset($jadwal['_id']);
+        foreach ($jadwal['Start'] as $dates){
+            $jadwal['startdate']=date("D, d-m-Y", $dates/1000);
+            $jadwal['starttime']=date("H:i:s", $dates/1000);
+        }
+        foreach ($jadwal['End'] as $dates){
+            $jadwal['enddate']=date("D, d-m-Y", $dates/1000);
+            $jadwal['endtime']=date("H:i:s", $dates/1000);
+        }
+        $arrMacList=array();
+        foreach ($maclist as $m){
+            $listabsen= DB::collection($m["mac"])
+                ->whereBetween('date', array($jadwal["Start"], $jadwal["End"]))
+                ->get();
+            $listabsensis=array();
+            foreach ($listabsen as $value){
+                $listabsensi['rf_id']=$value['rf_id'];
+                foreach ($value['date'] as $dates){
+                    $listabsensi['date']=date("D, d-m-Y", $dates/1000);
+                    $listabsensi['time']=date("H:i:s", $dates/1000);
+                }
+                array_push($listabsensis, $listabsensi);
+            }
+            $m['List_absen']=$listabsensis;
+            unset($m['_id']);
+            array_push($arrMacList,$m);
+        }
+        unset($jadwal['Start']);
+        unset($jadwal['End']);
+        $jadwal['maclist']=$arrMacList;
+        return $jadwal;
+    }
+    public function getlistjadwalbykodejadwal(Request $r){
+        $jadwal=DB::table('jadwal')
+            ->where("Kode_jadwal","like",$r['kodeJadwal'].'%')
+            ->select('Kode_ruangan','Kode_jadwal','Start','End')
+            ->get();
+        $arrResult=array();
+        foreach ($jadwal as $j){
+            $totalAbsen=0;
+            $maclist=DB::table('maclist')
+                ->where("koderuangan",'like',$j['Kode_ruangan'])
+                ->get();
+            foreach ($maclist as $m){
+                $jumlahAbsen= DB::collection($m["mac"])
+                    ->whereBetween('date', array($j["Start"], $j["End"]))
+                    ->count();
+                $totalAbsen=$totalAbsen+$jumlahAbsen;
+            }
+            unset($j['Start']);
+            unset($j['End']);
+            unset($j['_id']);
+            $j["totalabsen"]=$totalAbsen;
+            array_push($arrResult,$j);
+        }
+
+        return $arrResult;
+    }
+
     public function getnamainstansi($instansiid){
         $documents=DB::table('instansi')
             ->where("_id","=",$instansiid)
             ->select("Nama")
             ->first();
         return $documents["Nama"];
+    }
+    public function getnamakelas($kodekelas){
+        $documents=DB::table('instansi')
+            ->where("Ruang.Kode_ruangan","=",$kodekelas)
+            ->first();
+        $namakelas="";
+        foreach ($documents['Ruang'] as $d) {
+            if ($d["Kode_ruangan"]==$kodekelas)$namakelas=$d['Nama'];
+        };
+        return $namakelas;
     }
     public function generateRandomString($length = 5) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -126,11 +207,10 @@ class CJadwal extends Controller{
         }
         return $randomString;
     }
-    public function test(){
-        $documents=DB::table('instansi')
-            ->where("_id","=","595b5b5b3a88753038a2d256")
-            ->select("Nama")
-            ->first();
-        return $documents["Nama"];
+    public function test(Request $r){
+        $jadwal=DB::table('jadwal')
+            ->where("Kode_jadwal","like",'%'.$r['kodeJadwal'].'%')
+            ->get();
+        return $jadwal;
     }
 }
