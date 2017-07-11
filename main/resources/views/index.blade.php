@@ -13,7 +13,7 @@
                 <a class="item" href="{{url('/login')}}">Login</a>
             </div>
         </div>
-
+        <a class=" item" href="{{url('/absen/jadwal')}}">Lihat Berdasarkan Jadwal</a>
         <div id="containermac" name="containermac" class="ui form">
             <label>Device</label>
         </div>

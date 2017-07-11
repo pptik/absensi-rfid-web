@@ -34,7 +34,7 @@ class CInformasi extends Controller
         if (session()->has('ID')) {
             return view('authenticated.lihatjadwal');
         }else{
-            return view('index');
+            return view('lihatjadwal');
         }
     }
     public function scanner(){

@@ -104,12 +104,26 @@ class CJadwal extends Controller{
                 }
                 array_push($listabsensis, $listabsensi);
             }
-            $m['List_absen']=$listabsensis;
+            $m['List_absen']=$this->unique_multidim_array($listabsensis,'rf_id');
             array_push($arrMacList,$m);
         }
 
         $jadwal['maclist']=$arrMacList;
         return $jadwal;
+    }
+    public function unique_multidim_array($array, $key) {
+        $temp_array = array();
+        $i = 0;
+        $key_array = array();
+
+        foreach($array as $val) {
+            if (!in_array($val[$key], $key_array)) {
+                $key_array[$i] = $val[$key];
+                array_push($temp_array, $val);
+            }
+            $i++;
+        }
+        return $temp_array;
     }
     public function getdetailjadwalbykode(Request $r){
         $jadwal=DB::table('jadwal')
@@ -145,7 +159,7 @@ class CJadwal extends Controller{
                 }
                 array_push($listabsensis, $listabsensi);
             }
-            $m['List_absen']=$listabsensis;
+            $m['List_absen']=$this->unique_multidim_array($listabsensis,'rf_id');
             unset($m['_id']);
             array_push($arrMacList,$m);
         }
@@ -165,16 +179,21 @@ class CJadwal extends Controller{
             $maclist=DB::table('maclist')
                 ->where("koderuangan",'like',$j['Kode_ruangan'])
                 ->get();
+            $listabsensis=array();
             foreach ($maclist as $m){
-                $jumlahAbsen= DB::collection($m["mac"])
+                $listabsen= DB::collection($m["mac"])
                     ->whereBetween('date', array($j["Start"], $j["End"]))
-                    ->count();
-                $totalAbsen=$totalAbsen+$jumlahAbsen;
+                    ->get();
+
+                foreach ($listabsen as $value){
+                    $listabsensi['rf_id']=$value['rf_id'];
+                    array_push($listabsensis, $listabsensi);
+                }
             }
             unset($j['Start']);
             unset($j['End']);
             unset($j['_id']);
-            $j["totalabsen"]=$totalAbsen;
+            $j["totalabsen"]=count($this->unique_multidim_array($listabsensis,'rf_id'));
             array_push($arrResult,$j);
         }
 

@@ -156,19 +156,11 @@
 
 <div class="pusher" style="padding-left:5%;padding-right: 5%">
     <div class="ui secondary pointing menu" style="padding: 5px">
-        <a class="item" href="{{url('/')}}">Home</a>
-        <a class=" item" href="{{url('/instansi')}}">Instansi</a>
-        <a class=" item" href="{{url('/ruang')}}">Ruang</a>
-        <a class=" item" href="{{url('/scanner')}}" >Scanner</a>
-        <a class="active item" href="{{url('/jadwal')}}" >Jadwal</a>
+        <div class="left menu">
+            <h1>Absensi</h1>
+        </div>
         <div class="right menu">
-            <div class="ui dropdown item">
-                Pengaturan <i class="dropdown icon"></i>
-                <div class="menu">
-                    <a class="item">Akun</a>
-                    <a href="{{url('user/logout')}}"  class="item">Logout</a>
-                </div>
-            </div>
+            <a class="item" href="{{url('/login')}}">Login</a>
         </div>
     </div>
 </div>
